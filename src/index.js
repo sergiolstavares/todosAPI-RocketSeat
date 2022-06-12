@@ -120,7 +120,7 @@ app.delete('/todos/:id', checkExistsUserAccount, (request, response) => {
     if(todoForDeleted) {
         try{
             user.todos.splice(todoForDeleted.id, 1)
-            return response.status(200).send()
+            return response.status(204).send()
         } catch (e) {
             return response.status(400).send(e.message)
         }
@@ -129,4 +129,4 @@ app.delete('/todos/:id', checkExistsUserAccount, (request, response) => {
     }
 })
 
-app.listen(3333)
+module.exports = app
